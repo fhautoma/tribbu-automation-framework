@@ -1,0 +1,18 @@
+2026-04-29 14:58:41,776 [INFO] tribbu.core.driver.driver_factory — Creating android driver → http://localhost:4723
+2026-04-29 14:58:49,586 [INFO] tribbu.core.driver.driver_factory — Driver ready. Session: ef769134-6ec1-4ef8-b49a-9c1f6a6ba364
+2026-04-29 14:58:49,589 [INFO] tribbu.pages.base_page — tap 'passenger_option'
+2026-04-29 14:58:52,437 [INFO] tribbu.pages.base_page — tap 'have_companions_option'
+2026-04-29 14:58:54,299 [INFO] tribbu.pages.base_page — tap 'enter_selector'
+2026-04-29 14:58:56,745 [INFO] tribbu.pages.base_page — send_keys 'phone_number_text_field' = '623957809'
+2026-04-29 14:58:59,493 [INFO] tribbu.pages.base_page — tap 'terms_and_conditions_check_box'
+2026-04-29 14:59:01,816 [INFO] tribbu.pages.base_page — tap 'next_selector'
+2026-04-29 14:59:04,152 [INFO] tribbu.pages.base_page — send_keys 'otp_field' = '111111'
+2026-04-29 14:59:07,024 [INFO] tribbu.pages.base_page — tap 'next_selector'
+2026-04-29 14:59:11,178 [INFO] tribbu.pages.base_page — send_keys 'name_text_field' = 'Amber'
+2026-04-29 14:59:16,466 [INFO] tribbu.pages.base_page — send_keys 'surname_text_field' = 'Williams'
+2026-04-29 14:59:19,548 [INFO] tribbu.pages.base_page — tap 'next_selector'
+2026-04-29 14:59:22,058 [INFO] tribbu.pages.base_page — send_keys 'document_text_field' = '00090438W'
+2026-04-29 14:59:25,025 [INFO] tribbu.pages.base_page — tap 'activate_selector'
+2026-04-29 14:59:27,343 [INFO] tribbu.pages.base_page — send_keys 'friend_code_text_field' = 'MARIOM-0956'
+2026-04-29 14:59:30,151 [INFO] tribbu.pages.base_page — tap 'activate_selector'
+2026-04-29 14:59:32,937 [INFO] tribbu.pages.base_page — assert_visible 'first_ride_label'
