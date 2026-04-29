@@ -16,6 +16,9 @@ on:
         required: false
         default: ""
 
+permissions:
+  contents: write
+
 jobs:
   mobile-test:
     name: "Run ${{ inputs.test || 'all tests' }} on ${{ inputs.platform }}"
@@ -26,15 +29,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python environment
-        run: |
-          python -m pip install -e ".[dev]" --quiet
+        run: python -m pip install -e ".[dev]" --quiet
 
       - name: Start Appium server
         run: |
           appium --log appium.log &
           echo $! > appium.pid
           sleep 4
-          echo "Appium started (PID $(cat appium.pid))"
 
       - name: Run tests
         id: run_tests
@@ -52,18 +53,41 @@ jobs:
       - name: Stop Appium server
         if: always()
         run: |
-          if [ -f appium.pid ]; then
-            kill $(cat appium.pid) 2>/dev/null || true
-            rm appium.pid
-          fi
+          [ -f appium.pid ] && kill $(cat appium.pid) 2>/dev/null || true
+          rm -f appium.pid
 
-      - name: Upload Allure report
+      - name: Load previous Allure history
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/checkout@v4
         with:
-          name: allure-report-${{ inputs.platform }}-${{ github.run_number }}
-          path: reports/allure-report/
-          retention-days: 30
+          ref: gh-pages
+          path: gh-pages
+        continue-on-error: true
+
+      - name: Copy history into results
+        if: always()
+        run: |
+          if [ -d gh-pages/history ]; then
+            cp -r gh-pages/history reports/allure-results/history
+          fi
+        continue-on-error: true
+
+      - name: Generate Allure report
+        if: always()
+        uses: simple-elf/allure-report-action@master
+        with:
+          allure_results: reports/allure-results
+          allure_report: reports/allure-report
+          allure_history: allure-history
+          keep_reports: 20
+
+      - name: Publish report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
 
       - name: Upload failure screenshots
         if: always()
@@ -83,12 +107,15 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
-      - name: Report result
+      - name: Summary
         if: always()
         run: |
+          echo "## Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.run_tests.outcome }}" = "success" ]; then
-            echo "✅ Tests passed"
+            echo "✅ **Tests passed**" >> $GITHUB_STEP_SUMMARY
           else
-            echo "❌ Tests failed — download the Allure report artifact to see details"
-            exit 1
+            echo "❌ **Tests failed**" >> $GITHUB_STEP_SUMMARY
           fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Allure report:** https://fhautoma.github.io/tribbu-automation-framework/" >> $GITHUB_STEP_SUMMARY
