@@ -113,9 +113,9 @@ jobs:
           echo "## Test Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.run_tests.outcome }}" = "success" ]; then
-            echo "✅ **Tests passed**" >> $GITHUB_STEP_SUMMARY
+            echo "**Tests passed**" >> $GITHUB_STEP_SUMMARY
           else
-            echo "❌ **Tests failed**" >> $GITHUB_STEP_SUMMARY
+            echo "**Tests failed**" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "📊 **Allure report:** https://fhautoma.github.io/tribbu-automation-framework/" >> $GITHUB_STEP_SUMMARY
+          echo "**Allure report:** https://fhautoma.github.io/tribbu-automation-framework/" >> $GITHUB_STEP_SUMMARY
