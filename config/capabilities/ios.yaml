@@ -1,0 +1,23 @@
+# iOS Appium capabilities
+# Reference: https://appium.io/docs/en/latest/guides/caps/
+
+platformName: iOS
+appium:automationName: XCUITest
+
+# --- Device ---
+appium:deviceName: "Andres Felipe’s iPhone"
+appium:platformVersion: "26.5"
+appium:udid: "00008120-001144C20210201E"
+
+# --- App (choose one) ---
+# appium:app: "/path/to/MyApp.app"
+appium:bundleId: "com.hoopcarpool.HooP"
+
+# --- Behaviour ---
+appium:newCommandTimeout: 300
+appium:noReset: true
+appium:fullReset: false
+
+# --- Optional ---
+# appium:wdaLocalPort: 8100
+# appium:screenshotQuality: 1

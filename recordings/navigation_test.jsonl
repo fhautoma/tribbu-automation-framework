@@ -1,0 +1,3 @@
+{"ts":"2026-04-24T08:30:52.018Z","action":"tap","platform":"ios","screen":"Hoop.HomeView","locator":{"strategy":"accessibility id","value":"Menu"}}
+{"ts":"2026-04-24T08:31:05.469Z","action":"tap","platform":"ios","screen":"Hoop.MenuView","locator":{"strategy":"accessibility id","value":"Invite a friend"}}
+{"ts":"2026-04-24T08:31:26.684Z","action":"assert_visible","platform":"ios","screen":"Refer a friend","locator":{"strategy":"accessibility id","value":"Invite and get €5"}}

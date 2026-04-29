@@ -1,0 +1,94 @@
+name: Tribbu Mobile Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Target platform"
+        required: true
+        default: "android"
+        type: choice
+        options:
+          - android
+          - ios
+      test:
+        description: "Test name to run (leave empty for all, e.g. onboarding_test)"
+        required: false
+        default: ""
+
+jobs:
+  mobile-test:
+    name: "Run ${{ inputs.test || 'all tests' }} on ${{ inputs.platform }}"
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python environment
+        run: |
+          python -m pip install -e ".[dev]" --quiet
+
+      - name: Start Appium server
+        run: |
+          appium --log appium.log &
+          echo $! > appium.pid
+          sleep 4
+          echo "Appium started (PID $(cat appium.pid))"
+
+      - name: Run tests
+        id: run_tests
+        run: |
+          EXTRA=""
+          if [ -n "${{ inputs.test }}" ]; then
+            EXTRA="--test ${{ inputs.test }}"
+          fi
+          python -m tribbu.generator.cli run \
+            --platform "${{ inputs.platform }}" \
+            --no-open \
+            $EXTRA
+        continue-on-error: true
+
+      - name: Stop Appium server
+        if: always()
+        run: |
+          if [ -f appium.pid ]; then
+            kill $(cat appium.pid) 2>/dev/null || true
+            rm appium.pid
+          fi
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ inputs.platform }}-${{ github.run_number }}
+          path: reports/allure-report/
+          retention-days: 30
+
+      - name: Upload failure screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ inputs.platform }}-${{ github.run_number }}
+          path: reports/screenshots/
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload Appium log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-log-${{ github.run_number }}
+          path: appium.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Report result
+        if: always()
+        run: |
+          if [ "${{ steps.run_tests.outcome }}" = "success" ]; then
+            echo "✅ Tests passed"
+          else
+            echo "❌ Tests failed — download the Allure report artifact to see details"
+            exit 1
+          fi

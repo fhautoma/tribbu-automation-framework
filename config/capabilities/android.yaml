@@ -1,0 +1,11 @@
+# Android Appium capabilities
+platformName: Android
+appium:automationName: UiAutomator2
+appium:deviceName: "Galaxy S22"
+appium:udid: "R3CW503CJ7Z"
+appium:platformVersion: "16"
+appium:appPackage: "com.hoopcarpool.staging"
+appium:appActivity: "com.hoopcarpool.staging/com.hoopcarpool.core.features.main.MainHoopActivity"
+appium:noReset: false
+appium:newCommandTimeout: 300
+appium:autoGrantPermissions: true

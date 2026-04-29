@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tribbu"
+version = "0.1.0"
+description = "Mobile test automation framework powered by JSONL recordings"
+requires-python = ">=3.11"
+dependencies = [
+    "appium-python-client>=3.1.0",
+    "selenium>=4.18.0",
+    "pytest>=8.0.0",
+    "pydantic>=2.6.0",
+    "click>=8.1.0",
+    "jinja2>=3.1.0",
+    "python-dotenv>=1.0.0",
+    "PyYAML>=6.0",
+    "faker>=24.0.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest-xdist>=3.5.0",
+    "pytest-html>=4.1.0",
+    "allure-pytest>=2.13.0",
+    "ruff>=0.3.0",
+]
+
+[project.scripts]
+tribbu = "tribbu.generator.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tribbu*"]
+
+[tool.setuptools.package-data]
+"tribbu.generator" = ["templates/*.j2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
