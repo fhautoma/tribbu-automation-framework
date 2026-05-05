@@ -1,0 +1,18 @@
+INFO     tribbu.core.driver.driver_factory:driver_factory.py:44 Creating android driver → http://localhost:4723
+INFO     tribbu.core.driver.driver_factory:driver_factory.py:47 Driver ready. Session: aa583613-ffb2-42ff-bcf4-8dda1bff4a2e
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'passenger_option'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'have_companions_option'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'enter_selector'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'phone_number_text_field' = '679002634'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'terms_and_conditions_check_box'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'otp_field' = '111111'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'name_text_field' = 'Mark'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'surname_text_field' = 'King'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'document_text_field' = '00886294N'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'activate_selector'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'friend_code_text_field' = 'MARIOM-0956'
+INFO     tribbu.pages.base_page:base_page.py:142 tap 'activate_selector'
+INFO     tribbu.pages.base_page:base_page.py:202 assert_visible 'first_ride_label'
