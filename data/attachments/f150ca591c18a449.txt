@@ -1,17 +1,17 @@
 INFO     tribbu.core.driver.driver_factory:driver_factory.py:44 Creating android driver → http://localhost:4723
-INFO     tribbu.core.driver.driver_factory:driver_factory.py:47 Driver ready. Session: 97325c06-432c-4aa9-a8e8-8a26e015f394
+INFO     tribbu.core.driver.driver_factory:driver_factory.py:47 Driver ready. Session: 3a9b9694-7efe-4fe1-a679-a9343865a2a7
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'passenger_option'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'have_companions_option'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'enter_selector'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'phone_number_text_field' = '693925621'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'phone_number_text_field' = '623471313'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'terms_and_conditions_check_box'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
 INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'otp_field' = '111111'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'name_text_field' = 'Stacey'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'surname_text_field' = 'Smith'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'name_text_field' = 'David'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'surname_text_field' = 'Brown'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'document_text_field' = '00925397S'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'document_text_field' = '00396827P'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'activate_selector'
 INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'friend_code_text_field' = 'MARIOM-0956'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'activate_selector'
