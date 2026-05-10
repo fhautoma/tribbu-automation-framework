@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","46486","Test Onboarding Test","tests.generated","2026-05-06","passed","2026-05-06","TestOnboardingTest","test_onboarding_test","",""
+"","39222","Test Onboarding Test","tests.generated","2026-05-10","broken","2026-05-10","TestOnboardingTest","test_onboarding_test","",""

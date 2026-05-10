@@ -1,18 +1,16 @@
 INFO     tribbu.core.driver.driver_factory:driver_factory.py:44 Creating android driver → http://localhost:4723
-INFO     tribbu.core.driver.driver_factory:driver_factory.py:47 Driver ready. Session: 7c088f51-67e8-4e12-8c9b-cd66f3cdf601
+INFO     tribbu.core.driver.driver_factory:driver_factory.py:47 Driver ready. Session: cb8f3282-a5a5-44b6-b1ce-b2841b952125
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'passenger_option'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'have_companions_option'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'enter_selector'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'phone_number_text_field' = '626225194'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'phone_number_text_field' = '667570524'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'terms_and_conditions_check_box'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
 INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'otp_field' = '111111'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'name_text_field' = 'Mario'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'surname_text_field' = 'Miller'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'name_text_field' = 'Keith'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'surname_text_field' = 'Jones'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'next_selector'
-INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'document_text_field' = '00417967B'
+INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'document_text_field' = '00704828Q'
 INFO     tribbu.pages.base_page:base_page.py:142 tap 'activate_selector'
 INFO     tribbu.pages.base_page:base_page.py:153 send_keys 'friend_code_text_field' = 'MARIOM-0956'
-INFO     tribbu.pages.base_page:base_page.py:142 tap 'activate_selector'
-INFO     tribbu.pages.base_page:base_page.py:202 assert_visible 'first_ride_label'
